@@ -1,6 +1,7 @@
 function* myFunction(index) {
+    let arg;
     while (index < 5) {
-        yield index + "-value";
+        arg = yield index + "-value";
         index++;
     }
 }
@@ -13,10 +14,17 @@ const iterator = myFunction(0);
 //   }
 
 while (true) {
-    nextItem = iterator.next();
+    nextItem = iterator.next(2);
     if (nextItem.done) {
         return;
     } else {
         console.log(nextItem.value);
     }
 }
+
+// console.log(iterator.next());
+// console.log(iterator.next(4));
+// console.log(iterator.next());
+// console.log(iterator.next());
+// console.log(iterator.next());
+
